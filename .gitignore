@@ -1,0 +1,5 @@
+node_modules
+testing/node_modules
+web_scraping/node_modules
+serverless/node_modules
+.DS_Store

@@ -1,0 +1,14 @@
+{
+  "name": "nodejs_atx_web_scraping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "web_scraping_01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.17.0"
+  }
+}
