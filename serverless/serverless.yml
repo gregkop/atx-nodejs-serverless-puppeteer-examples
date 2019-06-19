@@ -1,0 +1,36 @@
+service: serverless-puppeteer-layers
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: terraform-experiences-staging
+
+plugins:
+  - serverless-apigw-binary
+  - serverless-apigwy-binary
+
+custom:
+  apigwBinary:
+    types:
+      - '*/*'
+
+functions:
+  puppeteer-orchestrator:
+    handler: handler.index
+    timeout: 60
+    events:
+      - http:
+          method: GET
+          path: /screenshot
+          contentHandling: CONVERT_TO_BINARY
+    layers:
+      - {Ref: ChromeLambdaLayer}
+
+layers:
+  chrome:
+    path: layer
+
+package:
+  exclude:
+    - node_modules/puppeteer/.local-chromium/**    
+
